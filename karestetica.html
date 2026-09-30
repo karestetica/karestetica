@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="KAR Estética - lavagem de carros e motos.">
+  <title>KAR Estética | Lavagem de Carros e Motos</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #090909;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      width: 92%;
+      margin: auto;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #090909ee;
+      border-bottom: 1px solid #292929;
+    }
+
+    nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    .logo span,
+    h1 span,
+    .price {
+      color: #ffd000;
+    }
+
+    .menu {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .menu a:hover {
+      color: #ffd000;
+    }
+
+    .menu .cta {
+      background: #ffd000;
+      color: #000;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 800;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 76vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 70px 0;
+      background: radial-gradient(
+        circle,
+        #292929,
+        #090909 65%
+      );
+    }
+
+    .badge {
+      display: inline-block;
+      color: #ffd000;
+      border: 1px solid #555;
+      border-radius: 50px;
+      padding: 7px 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(40px, 8vw, 85px);
+      line-height: 1;
+      margin: 18px 0;
+    }
+
+    .hero p {
+      max-width: 720px;
+      color: #bbb;
+      font-size: 18px;
+      margin: 0 auto 28px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-weight: 900;
+    }
+
+    .yellow {
+      background: #ffd000;
+      color: #000;
+    }
+
+    .green {
+      background: #25d366;
+      color: #06200d;
+    }
+
+    .dark {
+      border: 1px solid #555;
+      background: #151515;
+    }
+
+    /* SEÇÕES */
+    section {
+      padding: 70px 0;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .title h2 {
+      font-size: 32px;
+      margin: 0 0 7px;
+    }
+
+    .title p {
+      color: #aaa;
+    }
+
+    /* CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #151515;
+      border: 1px solid #292929;
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .card h3 {
+      margin: 8px 0 10px;
+    }
+
+    .card p {
+      color: #aaa;
+    }
+
+    .icon {
+      font-size: 32px;
+    }
+
+    .price {
+      font-size: 28px;
+      font-weight: 900;
+      margin: 12px 0;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+      color: #aaa;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    li:before {
+      content: "✓ ";
+      color: #ffd000;
+      font-weight: bold;
+    }
+
+    .highlight {
+      border-color: #ffd000;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ffd000;
+      color: #000;
+      border-radius: 5px;
+      padding: 4px 7px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    /* PROMOÇÃO */
+    .promo {
+      text-align: center;
+      background: #151515;
+      border: 1px solid #444;
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    /* ANTES E DEPOIS */
+    .before,
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .photo {
+      min-height: 210px;
+      border: 2px dashed #444;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: #999;
+      padding: 20px;
+    }
+
+    .photo b {
+      display: block;
+      color: #ddd;
+      margin-bottom: 6px;
+    }
+
+    /* RODAPÉ */
+    footer {
+      border-top: 1px solid #292929;
+      padding: 28px 0;
+      text-align: center;
+      color: #999;
+    }
+
+    /* BOTÃO FLUTUANTE */
+    .float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: #25d366;
+      color: #06200d;
+      padding: 14px 18px;
+      border-radius: 50px;
+      font-weight: 900;
+      z-index: 20;
+    }
+
+    /* CELULAR */
+    @media (max-width: 800px) {
+      .menu {
+        display: none;
+      }
+
+      .grid,
+      .before,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 70vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <div class="wrap">
+      <nav>
+
+        <a class="logo" href="#inicio">
+          KAR <span>ESTÉTICA</span>
+        </a>
+
+        <div class="menu">
+          <a href="#servicos">Serviços</a>
+          <a href="#precos">Preços</a>
+          <a href="#promocoes">Promoções</a>
+          <a href="#contato">Contato</a>
+
+          <a
+            class="cta"
+            target="_blank"
+            href="https://wa.me/5519987074515?text=Olá%20KAR%20Estética!%20Quero%20agendar."
+          >
+            Agendar
+          </a>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- INÍCIO -->
+  <section class="hero" id="inicio">
+    <div class="wrap">
+
+      <div class="badge">
+        🚗 CARROS • 🏍️ MOTOS
+      </div>
+
+      <h1>
+        Seu veículo
+        <span>zera de verdade.</span>
+      </h1>
+
+      <p>
+        Lavagem e estética automotiva com cuidado em cada detalhe.
+        Brilho, limpeza e acabamento para deixar sua nave impecável.
+      </p>
+
+      <div class="buttons">
+
+        <a
+          class="btn green"
+          target="_blank"
+          href="https://wa.me/5519987074515?text=Olá%20KAR%20Estética!%20Quero%20agendar%20um%20horário."
+        >
+          📲 Agendar pelo WhatsApp
+        </a>
+
+        <a class="btn dark" href="#precos">
+          Ver preços
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="wrap">
+
+      <div class="title">
+        <h2>Nossos serviços</h2>
+        <p>
+          Cuidado para carro e moto, do básico ao acabamento detalhado.
+        </p>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="icon">🚗</div>
+
+          <h3>Lavagem de carros</h3>
+
+          <p>
+            Limpeza externa e interna, acabamento dos plásticos,
+            pretinho e brilho.
+          </p>
+        </div>
+
+
+        <div class="card">
+          <div class="icon">🏍️</div>
+
+          <h3>Lavagem de motos</h3>
+
+          <p>
+            Lavagem cuidadosa e acabamento com atenção aos detalhes
+            da moto.
+          </p>
+        </div>
+
+
+        <div class="card">
+          <div class="icon">✨</div>
+
+          <h3>Estética detalhada</h3>
+
+          <p>
+            Serviços para realçar o brilho e proteger pintura
+            e acabamentos.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PREÇOS -->
+  <section id="precos">
+    <div class="wrap">
+
+      <div class="title">
+        <h2>Preços para carros</h2>
+        <p>
+          Escolha o serviço ideal para seu veículo.
+        </p>
+      </div>
+
+
+      <div class="grid">
+
+        <!-- LAVAGEM CONVENCIONAL -->
+        <div class="card">
+
+          <h3>Lavagem Convencional</h3>
+
+          <div class="price">
+            R$ 70
+          </div>
+
+          <ul>
+            <li>APC no painel</li>
+            <li>Aspiração interna e bancos</li>
+            <li>Lavagem externa</li>
+            <li>Cera Cadillac</li>
+            <li>Revitalização de plásticos</li>
+            <li>Pretinho e fragrância</li>
+          </ul>
+
+        </div>
+
+
+        <!-- MAIS PEDIDO -->
+        <div class="card highlight">
+
+          <span class="tag">
+            MAIS PEDIDO
+          </span>
+
+          <h3>
+            Convencional + Cera Cadillac
+          </h3>
+
+          <div class="price">
+            R$ 80
+          </div>
+
+          <ul>
+            <li>Lavagem completa</li>
+            <li>Cera Cadillac</li>
+            <li>Acabamento dos plásticos</li>
+            <li>Pretinho</li>
+            <li>Fragrância</li>
+          </ul>
+
+        </div>
+
+
+        <!-- DETALHADA -->
+        <div class="card">
+
+          <h3>Lavagem Detalhada</h3>
+
+          <div class="price">
+            R$ 100
+          </div>
+
+          <ul>
+            <li>Limpeza detalhada</li>
+            <li>Hydro Cerâmica</li>
+            <li>Revitalizador de plásticos</li>
+            <li>Acabamento premium</li>
+            <li>Mais brilho e proteção</li>
+          </ul>
+
+        </div>
+
+
+        <!-- VERNIZ -->
+        <div class="card">
+
+          <h3>Verniz de Motor</h3>
+
+          <div class="price">
+            R$ 150
+          </div>
+
+          <ul>
+            <li>Limpeza do cofre</li>
+            <li>Acabamento com verniz</li>
+            <li>Visual renovado</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- MOTOS -->
+      <div
+        class="title"
+        style="margin-top:55px"
+      >
+
+        <h2>
+          Lavagem de motos
+        </h2>
+
+        <p>
+          Confira as opções para sua moto.
+        </p>
+
+      </div>
+
+
+      <div class="grid">
+
+        <div class="card">
+
+          <h3>
+            🏍️ Moto Simples
+          </h3>
+
+          <div class="price">
+            R$ 30
+          </div>
+
+          <p>
+            Pretinho + cera + lavagem e acabamento.
+          </p>
+
+        </div>
+
+
+        <div class="card highlight">
+
+          <h3>
+            🏍️ Moto Detalhada
+          </h3>
+
+          <div class="price">
+            R$ 50
+          </div>
+
+          <p>
+            Verniz de motor + revitalizador de plástico + cera.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>
+            🏍️ Moto VIP
+          </h3>
+
+          <div class="price">
+            R$ 100
+          </div>
+
+          <p>
+            Verniz de motor + cera + vidrificação de plásticos
+            + Hydro Cerâmica.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PROMOÇÕES -->
+  <section id="promocoes">
+    <div class="wrap">
+
+      <div class="title">
+        <h2>
+          🔥 Promoções
+        </h2>
+
+        <p>
+          Condições especiais podem aparecer por tempo limitado.
+        </p>
+      </div>
+
+
+      <div class="promo">
+
+        <h3>
+          Quer saber a promoção de hoje?
+        </h3>
+
+        <p style="color:#aaa">
+          Chame a KAR Estética e confira horários
+          e ofertas disponíveis.
+        </p>
+
+        <a
+          class="btn green"
+          target="_blank"
+          href="https://wa.me/5519987074515?text=Olá!%20Quero%20saber%20as%20promoções%20da%20KAR%20Estética."
+        >
+          📲 Ver promoções
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ANTES E DEPOIS -->
+  <section>
+
+    <div class="wrap">
+
+      <div class="title">
+
+        <h2>
+          Antes e depois
+        </h2>
+
+        <p>
+          Você pode substituir estes espaços pelas suas fotos reais.
+        </p>
+
+      </div>
+
+
+      <div class="before">
+
+        <div class="photo">
+
+          <div>
+
+            <b>
+              📸 FOTO ANTES
+            </b>
+
+            Adicione uma foto do veículo antes.
+
+          </div>
+
+        </div>
+
+
+        <div class="photo">
+
+          <div>
+
+            <b>
+              ✨ FOTO DEPOIS
+            </b>
+
+            Adicione a foto do resultado final.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- COMO AGENDAR -->
+  <section>
+
+    <div class="wrap">
+
+      <div class="title">
+
+        <h2>
+          Como agendar
+        </h2>
+
+        <p>
+          É simples e rápido.
+        </p>
+
+      </div>
+
+
+      <div class="grid">
+
+        <div class="card">
+
+          <div class="icon">
+            1️⃣
+          </div>
+
+          <h3>
+            Chame no WhatsApp
+          </h3>
+
+          <p>
+            Envie uma mensagem para a KAR Estética.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="icon">
+            2️⃣
+          </div>
+
+          <h3>
+            Escolha o serviço
+          </h3>
+
+          <p>
+            Informe se é carro ou moto e o serviço desejado.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="icon">
+            3️⃣
+          </div>
+
+          <h3>
+            Reserve seu horário
+          </h3>
+
+          <p>
+            Combine o melhor horário e venha deixar a nave zerada.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTATO -->
+  <section id="contato">
+
+    <div class="wrap">
+
+      <div class="title">
+
+        <h2>
+          Fale com a KAR Estética
+        </h2>
+
+        <p>
+          Faça seu orçamento ou agende seu horário.
+        </p>
+
+      </div>
+
+
+      <div class="contact">
+
+        <!-- WHATSAPP -->
+        <div class="card">
+
+          <h3>
+            📲 WhatsApp
+          </h3>
+
+          <p>
+            (19) 98707-4515
+          </p>
+
+          <br>
+
+          <a
+            class="btn green"
+            target="_blank"
+            href="https://wa.me/5519987074515?text=Olá%20KAR%20Estética!%20Quero%20fazer%20um%20orçamento."
+          >
+            Chamar no WhatsApp
+          </a>
+
+        </div>
+
+
+        <!-- INSTAGRAM -->
+        <div class="card">
+
+          <h3>
+            📸 Instagram
+          </h3>
+
+          <p>
+            @Kar.estetica_
+          </p>
+
+          <br>
+
+          <a
+            class="btn yellow"
+            target="_blank"
+            href="https://instagram.com/Kar.estetica_"
+          >
+            Ver Instagram
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BOTÃO FLUTUANTE -->
+  <a
+    class="float"
+    target="_blank"
+    href="https://wa.me/5519987074515?text=Olá%20KAR%20Estética!%20Quero%20agendar."
+  >
+    💬 WhatsApp
+  </a>
+
+
+  <!-- RODAPÉ -->
+  <footer>
+
+    <div class="wrap">
+
+      <strong>
+        KAR ESTÉTICA
+      </strong>
+
+      <p>
+        Lavagem de carros e motos • Brilho, cuidado e acabamento.
+      </p>
+
+      <p>
+        © 2026 KAR Estética
+      </p>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
